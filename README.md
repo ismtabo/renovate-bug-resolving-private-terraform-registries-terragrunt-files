@@ -18,15 +18,23 @@ Renovates **resolves** the dependency as the module provide by the Hashicorp Ter
 the version of the module [`miguelhrocha/helloworld/aws`](https://registry.terraform.io/modules/miguelhrocha/helloworld/aws/latest) to the **latest version 1.1.0**.
 
 
-## Relevant logs
+## Relevant details
 
-Output of Terragrunt on `terragrunt init`
+Output of Terragrunt on `terragrunt init`:
 
 ```console
 $ terragrunt init
-WARN[0000] No double-slash (//) found in source URL /briancain/helloworld/aws. Relative paths in downloaded Terraform code may not work. 
+WARN[0000] No double-slash (//) found in source URL /miguelhrocha/helloworld/aws. Relative paths in downloaded Terraform code may not work. 
 ERRO[0000] 1 error occurred:
-        * error downloading 'tfr://registry.domain.com/briancain/helloworld/aws?version=2020.4.21': Get "https://registry.domain.com/.well-known/terraform.json": dial tcp: lookup registry.domain.com on 127.0.0.53:53: no such host
+        * error downloading 'tfr://registry.domain.com/miguelhrocha/helloworld/aws?version=1.0.0': Get "https://registry.domain.com/.well-known/terraform.json": dial tcp: lookup registry.domain.com on 127.0.0.53:53: no such host
  
-ERRO[0000] Unable to determine underlying exit code, so Terragrunt will exit with error code 1
+ERRO[0000] Unable to determine underlying exit code, so Terragrunt will exit with error code 1 
 ```
+
+Renovate Dashboard showing Terragrunt dependency to `miguelhrocha/helloworld/aws` appears without registry host (dependency is resolve to Hashicorp Terraform Registry):
+
+![renovate-dashboard](/docs/img/renovate-dashboard.png)
+
+Renovate PR to update `miguelhrocha/helloworld/aws` to latest version (1.1.0):
+
+![renovate-pr](/docs/img/renovate-pr.png)
